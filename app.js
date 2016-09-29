@@ -143,9 +143,9 @@ function secondSearchBtn(){
 }
 
 // Hides songs on until all are loaded. Prevents glitchy css.
-$('.songs-container').load(function(){
- $('.songs-container').css('opacity','1.0')
-});
+// $('.songs-container').load(function(){
+//  $('.songs-container').css('opacity','1.0')
+// });
 
 
 
