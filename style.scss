@@ -1,0 +1,188 @@
+//  COLORS
+$a:#0E1555;
+$b:#4E1184;
+$c:#932B77;
+$d:#FD367E;
+
+
+body{
+    background-color:$a;
+    background:linear-gradient(to top, $d, $a);
+    background-attachment:fixed;
+    color:white;
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    
+}
+.full-container{
+    position: relative;
+}
+.songs-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top:15%;
+    margin-bottom:15%;
+    opacity: 0.0;
+    transition:all 1s ease-in;
+    .song{
+        // border:2px solid white;
+        position: relative;
+        margin:1%;
+        bottom:-200%;
+        box-shadow:0px 5px 8px rgba(0,0,0,0.5);
+        transition: all 100ms ease-in-out;
+        .artwork-container{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            height:40rem;
+            width:40rem;
+            // border:2px solid white;
+            overflow:hidden;
+            img{
+                position: relative;
+                width:110%;
+                height:110%;
+                filter:blur(4px);
+                margin:-20%;
+                margin-top:-5%;
+            }
+            .img-overlay{
+                height:100%;
+                width:100%;
+                background-color:rgba(0, 0, 40, 0.6);
+                position: absolute;
+                top:0;
+                left:0;
+                bottom:0;
+                right:0;
+                z-index:2;
+            }
+        }
+        .info-container{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position:absolute;
+            bottom:0;
+            left:0;
+            right:0;
+            top:0;
+            z-index: 3;
+            mix-blend-mode: difference;
+        }
+        .controls-container{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 3;
+                background-color: rgba(0,0,40,0.8);
+                opacity:0;
+                transition:opacity 1s ease-in-out;
+                &:hover{
+                    opacity:1;
+                }
+                .control{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin:7%;
+                    &:hover{
+                        cursor:pointer;;
+                    }
+                }
+        }
+        .progress-container{
+            position:absolute;
+            top:0;
+            bottom:0;
+            right:0;
+            height:100%;
+            width: 100%;
+            background-image:url('waves.svg');
+            background-position: bottom;
+            background-size:100%;
+            z-index:6;
+    
+}
+    }
+}
+.fade-away{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:25%;
+    background:linear-gradient(to top, $d, transparent);
+    z-index: 300;
+}
+.fade-away-top{
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    width:100%;
+    height:25%;
+    background:linear-gradient(to bottom, $a, transparent);
+    z-index: 301;
+}
+.search-container{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 15%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: all 1s linear;
+    :focus{
+        outline:none;
+    }
+    i{
+        color: rgba(255,255,255,1);
+        overflow: visible;
+        padding: 2%;
+        &:hover{
+        cursor:pointer;
+        }
+    }
+}
+.search-bar{
+    background-color: transparent;
+    border: none;
+    font-size: 7rem;
+    line-height: 8rem;
+    color: white;
+    margin-left: 20%;
+    transition: width 0.1s linear;
+}
+.search-starter{
+    position: fixed;
+    top:0;
+    right:0;
+    z-index:1000;
+      &:hover{
+        cursor:pointer;
+    }
+}
+a{
+    color:inherit;
+    &:hover{
+        color:inherit;
+    }
+}

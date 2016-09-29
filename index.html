@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Itunes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <link rel="stylesheet" href="bundle.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="itunes-service.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body onload="$('#get-music-button').click()">
+    <div class="search-container" style="">
+        <input type="text" autocomplete="off" class="search-bar" id="artist" onkeyup="secondSearchBtn();getMusic();" placeholder="Artist Name"/>
+        <i class="fa fa-search fa-5x search-starter" id="get-music-button" onclick="firstSearchBtn()"></i>
+        <!--<i class="fa fa-search fa-5x" id="get-music-button2" onclick="$('.search-container').css('height', '15%');$('.songs-container').css({'opacity': '1', 'transform': 'translateY(0%)'});getMusic();"></i>-->
+        </div>
+    </div>
+      <div class="full-container">
+        <div class="songs-container" id="songs" >
+            <!--<div class="song">
+                <div class="artwork-container">
+                    <img src="http://is2.mzstatic.com/image/thumb/Music5/v4/29/fa/b6/29fab67f-c950-826f-26a0-5eebcd0e262b/source/60x60bb.jpg" alt="ALBUMNAME">
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="info-container">
+                    <div class="song-title">
+                        <h3>Wild and Free</h3>
+                    </div>
+                    <div class="song-artist">
+                        <h4>Taylor Swift</h2>
+                    </div>
+                </div>
+                <div class="controls-container">
+                    <div class="control back">
+                        <i class="fa fa-step-backward fa-3x"></i>
+                    </div>
+                    <div class="control play">
+                        <i class="fa fa-play fa-5x"></i>
+                    </div>
+                    <div class="control forward">
+                        <i class="fa fa-step-forward fa-3x"></i>
+                    </div>
+                </div>
+                <div class="progress-container"></div>
+            </div>-->
+        </div>
+        <div class="fade-away"></div>
+        <div class="fade-away-top"></div>
+    </div>
+  </body>
+</html>
