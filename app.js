@@ -108,7 +108,7 @@ function animateTiles(id){
   // var guassianPercent = Math.E**((-(percent-0.5))**2)
 
   // Multiplies the decimal by total desired rotation. Rounds result for CSS parsing.
-  var rotateX = Math.round(parabolaPercent*180);
+  var rotateX = Math.round(parabolaPercent*100);
 
   // var rotateX = Math.round(1-guassianPercent)*90;
 
