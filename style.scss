@@ -3,7 +3,9 @@ $a:#0E1555;
 $b:#4E1184;
 $c:#932B77;
 $d:#FD367E;
-
+$white: #FAFAFA;
+// FONTS
+$a-font:'Comfortaa', cursive;;
 
 body{
     background-color:$a;
@@ -11,7 +13,7 @@ body{
     background-attachment:fixed;
     color:white;
     text-align: center;
-    font-family: 'Comfortaa', cursive;
+    font-family: $a-font;
     
 }
 .full-container{
@@ -166,7 +168,7 @@ body{
     background-color: transparent;
     border: none;
     font-size: 7rem;
-    color: white;
+    color: $white;
     margin-left: 20%;
     transition: width 0.1s linear;
     line-height: auto;
@@ -184,5 +186,145 @@ a{
     color:inherit;
     &:hover{
         color:inherit;
+    }
+}
+
+
+
+.form-control{
+    background-color:$white;
+    border:none;
+    box-shadow: none;
+}
+.navbar-default{
+    background-color:$a;
+    color:$d;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    border:none;
+    .navbar-toggle{
+        color:$d;
+        .icon-bar{
+            background-color:$white;
+        }
+    }
+    .navbar-brand{
+        color:$d;
+        font-size: 3rem;
+
+    }
+    .navbar-nav{
+        li{
+            color:$d;
+            a{
+                color:$d;
+                
+            }
+        }
+            .active{
+                a{
+                     color:$a;
+                     background-color:$white;
+                &:hover{
+                    color:$a;
+                    background-color:$white;
+                }
+                }
+               
+            }
+    }
+}
+.flex-area{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+    .player-info{
+        width:45%;
+        .thumbnail-image-container{
+            height: 50%;
+            width:50%;
+            overflow:hidden;
+            border-radius:50%;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            border:4px solid $d;
+
+            img{
+                width:100%;
+            }
+        }
+    }
+}
+.btn-primary{
+    background-color: $d;
+    color:$a;
+    border:none;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+.form-group{}
+.form-inline{
+    
+}
+.panel{
+    color:$d;
+    background-color:$a;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    border:none;
+    border-radius:0;
+
+
+    .panel-heading{
+        background-color:$a;
+        color:$white;
+        border-radius:0;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+
+    }
+}
+.player-panel{
+    background-color:$a;
+}
+
+
+
+
+  .navbar-transparent{
+        background-color:transparent;
+        color:black;
+        box-shadow: none;
+        .navbar-brand{
+            color:$white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5)
+        }
+        .navbar-toggle{
+            border:none;
+        }
+    }
+
+
+
+
+.login-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    height:100%;
+    width:100%;
+  
+    .form-container{
+        color:$a;
+        width:33.3333%;
+        margin:2%;
+        input{
+            font-family: sans-serif;
+            background-color:$white;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+
+        }
     }
 }
