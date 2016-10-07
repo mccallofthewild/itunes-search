@@ -73,21 +73,23 @@ function SessionsService(){
          var key = keyString;
      }
      
-     function updateData(data){
+     function update(data){
         var localData = localStorage.getItem('_magentaDB');
         var DB = JSON.parse(localData);
-        console.log(DB)
 
         var sessionData = sessionStorage.getItem('_magentaUserSession');
         var userSessionKey = JSON.parse(sessionData).key;
 
         DB.userDataTable[userSessionKey].songs = data;
         localStorage.setItem('_magentaDB', JSON.stringify(DB))
+        console.log(DB)
+
 
      }
      
      self.updateData = (data)=>{
-        updateData(data);
+        update(data);
+        console.log("YEW MADE IT!!!!!!")
      }
 }
 
@@ -115,7 +117,7 @@ function SessionsController(){
     var sessionService = new SessionsService();
     
     var sessionString = sessionStorage.getItem('_magentaUserSession');
-    if(sessionString){
+    if(!!sessionString){
         var sessionJSON = JSON.parse(sessionString);
         var key = sessionJSON.key
 
@@ -126,31 +128,45 @@ function SessionsController(){
 
         var userData = DBJSON.userDataTable[key].songs;
         console.log(DBJSON.userDataTable[key])
+
         SongController(userData, sessionService);
-        $.get('-userSession.html', (data)=>{
-            $('body').html(data)
-        });
-    }else{
+
+    }else{ console.log("MDUSIOJ")
+
+                   $.get('-login.html', (data)=>{
+                    $('.page-container').html(data)
+                    
+            });
         loginPage();
     }
 
     
     
     function loginPage(){
-        $.get('-login.html', (data)=>{
-            $('body').html(data)
-        });
+        try{
+            $.get('-login.html', (data)=>{
+                $('.user-session-container').fadeOut(800, ()=>{
+                    $('.page-container').html(data, ()=>{
+                        // $('.login-page-container').hide();
+                        // $('.login-page-container').fadeIn(1000);
+                    });
+                    
+                });
+            });
+
+        }
+        catch(error){
+            console.log(error)
+        }
+
     }
-
-
     function shout(words){
         window.alert(words);
     }
-    $('body').on('click', '.logout-btn', function(){
-        console.log("LKONINGOINGGING OUT@!!!!")
+
+    $('.page-container').on('click', '.logout-btn', function(){
         sessionService.logout();
         loginPage();
-        location.reload()
     })
 
 
@@ -161,17 +177,19 @@ function SessionsController(){
         var username = a.target.username.value;
         try{
             var userData = sessionService.login(username, password)
-            location.reload()
         }
         catch(error){
             shout("Username or Password is incorrect")
             console.log(error)
             return;
         }
+        $.get('-userSession.html', (data)=>{
+            $('.page-container').html(data);
+        });
         SongController(userData, sessionService);
     })
     
-    $(document.body).on("submit", '.signup-form', function(a){
+    $('body').on("submit", '.signup-form', function(a){
         a.preventDefault()
         console.log(a.target.password.value);
         var password = a.target.password.value;
@@ -193,6 +211,7 @@ function SessionsController(){
   
 
 }
+
 
 // $('.login-form').ready(function(){
 
@@ -232,3 +251,18 @@ function SessionsController(){
 //     });
 
 // })
+
+
+// $(body).on('click', '.playbuttonselector', function(){
+    
+// })
+
+// $(body).on('ended', 'audio', function(){
+//     var currentIndex = $('audio').indexOf(this)
+//     $('audio')[currentIndex + 1].play();
+// })
+
+
+// var currentIndex = $('audio').indexOf($('firstthing'))
+
+// $(document.body).on('ended', '${currentsong}')
