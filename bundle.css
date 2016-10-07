@@ -16,7 +16,8 @@ body {
   align-items: center;
   margin-top: 15%;
   margin-bottom: 15%;
-  transition: all 0.5s ease-in; }
+  opacity: 0.0;
+  transition: all 1s ease-in; }
   .songs-container .song {
     position: relative;
     margin: 1%;
@@ -141,10 +142,10 @@ body {
   background-color: transparent;
   border: none;
   font-size: 7rem;
-  line-height: 8rem;
   color: white;
   margin-left: 20%;
-  transition: all 2s linear; }
+  transition: width 0.1s linear;
+  line-height: auto; }
 
 .search-starter {
   position: fixed;
