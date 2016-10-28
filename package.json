@@ -1,0 +1,19 @@
+{
+  "name": "magenta-music",
+  "version": "1.0.0",
+  "description": "An Itunes based music player",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mccallofthewild/itunes-search.git"
+  },
+  "author": "McCall Alexander",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mccallofthewild/itunes-search/issues"
+  },
+  "homepage": "https://github.com/mccallofthewild/itunes-search#readme"
+}
