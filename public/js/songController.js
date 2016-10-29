@@ -5,42 +5,21 @@ function SongController(_savedSongs, ServiceArgument){
         $('.page-container').html(data)
     });
 
-    //    
-    // songService.loadJSON
-    // songService.getMySongs();
-    // console.log(songService.getMySongs());
 
-    // var template = (song)=>{
-    //     if(song == undefined){return ""}
-    //     return `
-    //     <div class="song-info">
-    //         <div class="panel song-panel">
-    //             <div class="panel-heading">
-    //                 <h3><small>${song.firstname}</small></br>${song.lastname}</h3>
-    //                 <h3 class="text-right"><button class="btn btn-primary add-btn" songid="${song.elias_id}"><i songid="${song.elias_id}" class="fa ${(song.onMyTeam)? "fa-minus" : "fa-plus"}"></i></button></h3>
-    //             </div>
-    //             <div class="panel-body">
-    //                 <div class='thumbnail-image-container'>
-    //                     <img src="${song.photo.replace("http", "https")}" alt="">
-    //                 </div>
-    //                 <table class="table">
-    //                     <tr>
-    //                         <td>Position:</td>
-    //                         <td>${uncronym(song.position)}</td>
-    //                     </tr>
-    //                     <tr>
-    //                         <td>Jersey No.:</td>
-    //                         <td>#${song.jersey || "NN"}</td>
-    //                     </tr>
-    //                     <tr>
-    //                         <td>Team:</td>
-    //                         <td>${uncronym(song.pro_team)}</td>
-    //                     </tr>
-    //                 </table>
-    //             </div>
-    //         </div>
-    //     </div>
-    // `}
+    if(window.location.pathname.includes('playlists')){
+        var splitpath =  window.location.pathname.split('/')
+        var id = splitpath[splitpath.length-2]
+        console.log(id)
+        $.get(window.location.origin + "/api/playlists/" + id, (data)=>{
+            var songs = data.songs
+            var songarr = [];
+            for(var i in songs){
+                songarr.push(songs[i])
+            }
+            drawSongs(songarr)
+            
+        })
+    }
 
 
     var displaySongs = (songs, page, amount, selector)=>{
@@ -83,8 +62,8 @@ function SongController(_savedSongs, ServiceArgument){
             $('.nav-link-search').addClass('active')
             $('.nav-link-roster').removeClass('active')
             $('.profile-page').fadeOut(()=>{$('.search-page').fadeIn()})
-            console.log(songService.getNflSongs())
-            displaySongs(songService.getNflSongs(), 0, 20, '.insert-nfl-area');
+            console.log(songService.getSongs())
+            displaySongs(songService.getSongs(), 0, 20, '.insert-nfl-area');
         })
 // SHOW MY SONGS
         $('.page-container').on('click', '.my-music-btn', function(){

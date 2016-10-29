@@ -95,7 +95,7 @@ function SongService(storedSongs, SessionService){
             dictionarify(i)
         }
     }
-    self.getNflSongs=()=>{
+    self.getSongs=()=>{
         return _nflSongs;
     }
     self.getsongLibrary = ()=>{
