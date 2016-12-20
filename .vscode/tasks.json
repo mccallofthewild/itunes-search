@@ -1,6 +1,6 @@
 {
     "version": "0.1.0",
-    "command": "node-sass",
+    "command": "sass",
     "isShellCommand": true,
-    "args": ["-w", "style.scss", "bundle.css"]
+    "args": ["--watch", "style.scss:public/css/bundle.css"]
 }

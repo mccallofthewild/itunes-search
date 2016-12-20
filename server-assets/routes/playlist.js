@@ -23,9 +23,13 @@ router.route('/:id?')
     })
   })
   .put(function (req, res, next) {
-      Playlist.update(req.params.id, req.body.playlist, (playlist)=>{
-        res.send(playlist)
-      })
+    if(req.body.playlist){
+        Playlist.updateAll(req.params.id, req.body.playlist, (playlist)=>{
+          res.send(playlist)
+        })
+    }else if(req.body.like){
+
+    }
   })
   .delete(function (req, res, next) {
     Playlist.destroy(req.body.playlist, (response)=>{

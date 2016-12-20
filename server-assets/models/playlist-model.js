@@ -25,7 +25,8 @@ function create(playlist, cb) {
   Playlist.create(playlistObj).then(cb).catch(cb)
 }
 
-function update(id, playlist, cb){
+// Updates/overwrites all properties(except id) in an object
+function updateAll(id, playlist, cb){
     playlist.id = id;
     getById(id, "", (original)=>{
         Playlist.update(id, myPlaylist(playlist))
@@ -34,25 +35,30 @@ function update(id, playlist, cb){
     })
 }
 
-function destroy(id, cb){
-    Playlist.reap(Playlist)
-
+function updateOne(id, idk){
 
 }
 
+
 function getAll(cb) {
-  Playlist.findAll({}).then(cb).catch(cb)
+  let sortedPlaylists = (playlists)=>{cb(playlists
+          .filter((a)=>{return JSON.stringify(a).includes('preview' && 'artist')})
+          .sort((a,b)=>{return (b.upVotes-b.downVotes)-(a.upVotes-a.downVotes)})
+          )}
+  Playlist.findAll({}).then(sortedPlaylists).catch(cb)
 }
 
 function getById(id, query, cb) {
   Playlist.find(id).then(cb).catch(cb)
 }
 
+var destroy;
+
 module.exports = {
   create,
   getAll,
   getById,
-  update,
+  updateAll,
   destroy
 }
 

@@ -6,7 +6,9 @@ $d:#FD367E;
 $white: #FAFAFA;
 // FONTS
 $a-font:'Comfortaa', cursive;;
-
+html{
+    background-color:$a;
+}
 body{
     background-color:$a;
     background:linear-gradient(to top, $d, $a);
@@ -34,8 +36,8 @@ body{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-top:33%;
-    margin-bottom:15%;
+    padding-top:33%;
+    padding-bottom:15%;
     opacity: 0.0;
     transition:all 1s ease-in;
     .song{
@@ -131,6 +133,54 @@ body{
             background-size:100%;
             z-index:6;
     
+}
+.playlist-list-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 66%;
+    width: 100%;
+    overflow: hidden;
+    z-index:3;
+    background-color: rgba(0,0,20,0.9);
+    overflow-y:hidden;
+    overflow-x: scroll;
+    .heading-container{
+        margin:3.33%;
+    }
+    .playlist-body-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        width: 66%;
+        .playlist-body{
+            width:100%;
+            .playlist{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                justify-content: flex-start;
+                align-items: center;
+                border-bottom: 1px solid white;
+                padding-bottom: 12px;
+                margin: 20px 0;
+                .album-art-container{
+                    height:3em;
+                    overflow: hidden;
+                    margin-right:6%;
+                    img{
+                        height:100%;
+                    }
+                }
+            }
+        }
+    }
 }
     }
 }
